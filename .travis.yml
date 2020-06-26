@@ -7,7 +7,7 @@ jobs:
   - arch: s390x
   include:
   - os: linux
-    dist: bionic
+    dist: xenial
     arch: s390x
     jdk: openjdk11
     addons:
