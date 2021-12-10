@@ -4,20 +4,11 @@ language: java
 jobs:
   fast_finish: true
   include:
-  - build: ppc64le
-    os: linux
-    arch: ppc64le
-    jdk: openjdk11
-    script: mvn install -DskipTests -Dmaven.javadoc.skip=true
-    addons:
-      apt:
-        packages:
-        - maven
   - build: s390x
     os: linux
     arch: s390x
     jdk: openjdk11
-    script: mvn install -DskipTests -Dmaven.javadoc.skip=true
+    script: mvn install -DskipTests -Dmaven.javadoc.skip=true && mvn test
     addons:
       apt:
         packages:
