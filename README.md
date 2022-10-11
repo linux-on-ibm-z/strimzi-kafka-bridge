@@ -7,6 +7,7 @@
 
 # Apache Kafka bridge
 
+# 1
 This project provides a software component which acts as a bridge between different standard protocols and an [Apache Kafka](http://kafka.apache.org/) cluster.
 The available protocols are:
 
