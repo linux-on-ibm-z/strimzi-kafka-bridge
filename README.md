@@ -15,6 +15,7 @@ The available protocols are:
 It provides a different way to interact with Apache Kafka because the latter natively supports only a custom (proprietary) protocol.
 Thanks to the bridge, all clients which can speak different standard protocols can connect to Apache Kafka cluster in order to send and receive messages to / from topics.
 
+
 ## Running the bridge
 
 ### On Kubernetes and OpenShift
