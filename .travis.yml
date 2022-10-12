@@ -25,7 +25,8 @@ jobs:
 services:
 - docker
 before_install:
-- gem install asciidoctor
+- wget https://rubygems.org/downloads/asciidoctor-2.0.17.gem
+- gem install --local asciidoctor
 script:
 - "./.travis/build.sh"
 env:
