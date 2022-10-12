@@ -13,6 +13,7 @@ jobs:
       apt:
         packages:
         - maven
+        - wget
   - build: s390x
     os: linux
     arch: s390x
@@ -22,9 +23,13 @@ jobs:
       apt:
         packages:
         - maven
+        - wget
 services:
 - docker
 before_install:
+- ping -c 5 rubygems.org || true
+- ping -c 5 8.8.8.8 || true
+- wget https://rubygems.org/specs.4.8.gz
 - gem install asciidoctor
 script:
 - "./.travis/build.sh"
