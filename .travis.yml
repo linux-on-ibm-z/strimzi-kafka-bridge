@@ -27,10 +27,8 @@ jobs:
 services:
 - docker
 before_install:
-- ping -c 5 rubygems.org || true
-- ping -c 5 8.8.8.8 || true
-- wget https://rubygems.org/specs.4.8.gz
-- gem install asciidoctor
+- curl -s https://rubygems.org/downloads/asciidoctor-2.0.17.gem -o asciidoctor-2.0.17.gem
+- gem install --local asciidoctor
 script:
 - "./.travis/build.sh"
 env:
