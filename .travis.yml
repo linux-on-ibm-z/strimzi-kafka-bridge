@@ -1,4 +1,4 @@
-dist: jammy
+dist: bionic
 sudo: required
 language: java
 jobs:
@@ -17,7 +17,7 @@ jobs:
   - build: s390x
     os: linux
     arch: s390x
-    jdk: openjdk17
+    jdk: openjdk11
     script: mvn install -Dmaven.javadoc.skip=true
     addons:
       apt:
