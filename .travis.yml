@@ -28,6 +28,7 @@ services:
 - docker
 before_install:
 - sudo apt-get install -y openjdk-11-jdk maven
+- echo ${TRAVIS_CPU_ARCH}
 - curl -s https://rubygems.org/downloads/asciidoctor-2.0.17.gem -o asciidoctor-2.0.17.gem
 - gem install --local asciidoctor
 script:
@@ -42,5 +43,4 @@ env:
   - TESTCONTAINERS_RYUK_DISABLED=TRUE
   - TESTCONTAINERS_CHECKS_DISABLE=TRUE
   - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-${TRAVIS_CPU_ARCH}
-  - echo ${TRAVIS_CPU_ARCH}
   - PATH=$JAVA_HOME/bin:$PATH
