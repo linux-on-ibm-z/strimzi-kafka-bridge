@@ -27,8 +27,9 @@ jobs:
 services:
 - docker
 before_install:
+- echo ${TRAVIS_CPU_ARCH} 
+- sleep 10
 - sudo apt-get install -y openjdk-11-jdk maven
-- echo $TRAVIS_CPU_ARCH
 - curl -s https://rubygems.org/downloads/asciidoctor-2.0.17.gem -o asciidoctor-2.0.17.gem
 - gem install --local asciidoctor
 script:
