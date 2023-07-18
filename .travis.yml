@@ -1,4 +1,4 @@
-dist: bionic
+dist: focal
 sudo: required
 language: java
 jobs:
@@ -41,10 +41,3 @@ env:
   - MVN_ARGS="-B"
   - TESTCONTAINERS_RYUK_DISABLED=TRUE
   - TESTCONTAINERS_CHECKS_DISABLE=TRUE
-  matrix:
-  - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-ppc64el
-    PATH=$JAVA_HOME/bin:$PATH
-    ARCH=ppc64le
-  - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-s390x
-    PATH=$JAVA_HOME/bin:$PATH
-    ARCH=s390x
