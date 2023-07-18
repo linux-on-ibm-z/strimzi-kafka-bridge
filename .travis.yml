@@ -41,3 +41,5 @@ env:
   - MVN_ARGS="-B"
   - TESTCONTAINERS_RYUK_DISABLED=TRUE
   - TESTCONTAINERS_CHECKS_DISABLE=TRUE
+  - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-${arch}
+  - PATH=$JAVA_HOME/bin:$PATH
