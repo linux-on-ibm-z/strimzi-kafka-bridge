@@ -19,7 +19,6 @@ jobs:
     os: linux
     arch: s390x
     jdk: openjdk11
-    env: JAVA_HOME=/usr/lib/jvm/java-11-openjdk-s390x
     script: mvn install -Dmaven.javadoc.skip=true
     addons:
       apt:
@@ -43,3 +42,5 @@ env:
   - MVN_ARGS="-B"
   - TESTCONTAINERS_RYUK_DISABLED=TRUE
   - TESTCONTAINERS_CHECKS_DISABLE=TRUE
+  - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-${TRAVIS_CPU_ARCH}
+  - PATH=$JAVA_HOME/bin:$PATH
