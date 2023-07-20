@@ -8,7 +8,6 @@ jobs:
     os: linux
     arch: ppc64le
     jdk: openjdk11
-    env: JAVA_HOME=/usr/lib/jvm/java-11-openjdk-ppc64el
     script: mvn install -Dmaven.javadoc.skip=true
     addons:
       apt:
