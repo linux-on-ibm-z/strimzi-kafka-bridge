@@ -7,22 +7,18 @@ jobs:
   - build: ppc64le
     os: linux
     arch: ppc64le
-    jdk: openjdk11
     script: mvn install -Dmaven.javadoc.skip=true
     addons:
       apt:
         packages:
-        - maven
         - curl
   - build: s390x
     os: linux
     arch: s390x
-    jdk: openjdk11
     script: mvn install -Dmaven.javadoc.skip=true
     addons:
       apt:
         packages:
-        - maven
         - curl
 services:
 - docker
