@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 0.27.0
+
+* Removed support for OpenTracing:
+  * The `bridge.tracing=jaeger` configuration is not valid anymore.
+  * The OpenTelemetry based tracing is the only available by using `bridge.tracing=opentelemetry`.
+* Fixed logging Kafka TLS related password for trust/key stores on startup.
+* Sign containers using cosign
+* Generate and publish Software Bill of Materials (SBOMs) of Strimzi containers
+* Dependency updates (Kafka 3.6.0, OAuth 0.14.0)
+* Dependency updates (Vert.x 4.4.6, Netty 4.1.100.Final [CVE-2023-44487](https://nvd.nist.gov/vuln/detail/CVE-2023-44487))
+
+## 0.26.1
+
+* Dependency updates (Kafka 3.5.1 [CVE-2023-34455](https://nvd.nist.gov/vuln/detail/CVE-2023-34455))
+
 ## 0.26.0
 
 * Removed "remote" and "local" labels from HTTP server related metrics to avoid a big growth of time series samples.

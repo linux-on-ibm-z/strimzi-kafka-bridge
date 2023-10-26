@@ -60,9 +60,9 @@ public class HttpSinkBridgeEndpoint<K, V> extends HttpBridgeEndpoint {
     private long pollTimeOut = 100;
     private long maxBytes = Long.MAX_VALUE;
 
-    Pattern forwardedHostPattern = Pattern.compile("host=([^;]+)", Pattern.CASE_INSENSITIVE);
-    Pattern forwardedProtoPattern = Pattern.compile("proto=([^;]+)", Pattern.CASE_INSENSITIVE);
-    Pattern hostPortPattern = Pattern.compile("^.*:[0-9]+$");
+    final Pattern forwardedHostPattern = Pattern.compile("host=([^;]+)", Pattern.CASE_INSENSITIVE);
+    final Pattern forwardedProtoPattern = Pattern.compile("proto=([^;]+)", Pattern.CASE_INSENSITIVE);
+    final Pattern hostPortPattern = Pattern.compile("^.*:[0-9]+$");
 
     private MessageConverter<K, V, byte[], byte[]> messageConverter;
     private final HttpBridgeContext<K, V> httpBridgeContext;
@@ -481,12 +481,12 @@ public class HttpSinkBridgeEndpoint<K, V> extends HttpBridgeEndpoint {
                         }
                         for (Map.Entry<String, ArrayNode> part: partitions.entrySet()) {
                             ObjectNode topic = JsonUtils.createObjectNode();
-                            topic.put(part.getKey(), part.getValue());
+                            topic.set(part.getKey(), part.getValue());
                             partitionsArray.add(topic);
                         }
                         ArrayNode topicsArray = JsonUtils.createArrayNode(topics);
-                        root.put("topics", topicsArray);
-                        root.put("partitions", partitionsArray);
+                        root.set("topics", topicsArray);
+                        root.set("partitions", partitionsArray);
 
                         HttpUtils.sendResponse(routingContext, HttpResponseStatus.OK.code(), BridgeContentType.KAFKA_JSON, JsonUtils.jsonToBytes(root));
                     } else {
